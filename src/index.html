@@ -2,7 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#667eea" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <title>TaskTrek - Smart Task Management</title>
     <link rel="stylesheet" href="css/style.css" />
     <link
@@ -13,11 +22,17 @@
   </head>
   <body>
     <div class="container hidden">
-      <section class="">
+      <section>
         <h1>TaskTrek <i class="fas fa-check-double"></i></h1>
         <div class="task-controls">
           <div class="task-input-group">
-            <input type="text" id="taskInput" placeholder="Add a new task..." />
+            <input
+              type="text"
+              id="taskInput"
+              placeholder="Add a new task..."
+              autocomplete="off"
+              autocapitalize="sentences"
+            />
             <select id="taskPriority">
               <option value="low">Low Priority</option>
               <option value="medium">Medium Priority</option>
