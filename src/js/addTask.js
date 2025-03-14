@@ -1,27 +1,18 @@
-function addTask() {
-    const taskInput = document.getElementById("taskInput");
-    const taskList = document.getElementById("taskList");
+// Import modules
+import { storage } from "./modules/storage.js";
+import { TaskManager } from "./modules/taskManager.js";
+import { utils } from "./modules/utils.js";
+import { UI } from "./modules/ui.js";
 
-    if (taskInput.value === "") {
-        alert("Please enter a task.");
-        return;
-    }
+// Initialize application
+const taskManager = new TaskManager(storage);
+const ui = new UI(taskManager, utils);
 
-    const li = document.createElement("li");
-    li.textContent = taskInput.value;
+// Initial render
+document.addEventListener("DOMContentLoaded", () => {
+  ui.renderTasks();
+  ui.updateTaskCount();
+});
 
-    const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Remove";
-    removeBtn.className = "remove-btn";
-    removeBtn.onclick = () => taskList.removeChild(li);
-
-    li.appendChild(removeBtn);
-    taskList.appendChild(li);
-
-    taskInput.value = "";
-}
-
-function number() {
-    
-}
-number();
+// Make UI instance available globally for event handlers
+window.ui = ui;
